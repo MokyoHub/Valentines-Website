@@ -10,6 +10,40 @@
   </head>
   <body>
 
+    <audio id="bg-music" loop>
+      <source src="bobadate.mp3" type="audio/mpeg" />
+    </audio>
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bg-music");
+        
+        // Check if audio was playing before
+        if (localStorage.getItem("isPlaying") === "true") {
+          let savedTime = parseFloat(localStorage.getItem("audioTime")) || 0;
+          audio.currentTime = savedTime; // Resume from last time
+          audio.play();
+        }
+    
+        // Save audio time every second
+        setInterval(() => {
+          if (!audio.paused) {
+            localStorage.setItem("audioTime", audio.currentTime);
+            localStorage.setItem("isPlaying", "true");
+          } else {
+            localStorage.setItem("isPlaying", "false");
+          }
+        }, 1000);
+    
+        // Play button functionality
+        document.querySelector(".play-button").addEventListener("click", function () {
+          audio.play();
+          localStorage.setItem("isPlaying", "true");
+        });
+      });
+    </script>
+
     <audio id="mouse-click">
       <source src="mouse-click.wav" type="audio/mpeg">
   </audio>

@@ -59,6 +59,40 @@
   </head>
   <body>
 
+    <audio id="bg-music" loop>
+      <source src="bobadate.mp3" type="audio/mpeg" />
+    </audio>
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bg-music");
+        
+        // Check if audio was playing before
+        if (localStorage.getItem("isPlaying") === "true") {
+          let savedTime = parseFloat(localStorage.getItem("audioTime")) || 0;
+          audio.currentTime = savedTime; // Resume from last time
+          audio.play();
+        }
+    
+        // Save audio time every second
+        setInterval(() => {
+          if (!audio.paused) {
+            localStorage.setItem("audioTime", audio.currentTime);
+            localStorage.setItem("isPlaying", "true");
+          } else {
+            localStorage.setItem("isPlaying", "false");
+          }
+        }, 1000);
+    
+        // Play button functionality
+        document.querySelector(".play-button").addEventListener("click", function () {
+          audio.play();
+          localStorage.setItem("isPlaying", "true");
+        });
+      });
+    </script>
+
   </button>
 
   <audio id="mouse-click">
@@ -141,12 +175,13 @@
 
       <div id="mystery-links-2" class="mystery-links">
        
-        <a href="https://example.com/link2" target="_blank">
+        
           <img src="images/BlenderSOON.png" alt="Link 2" />
         </a>
       </div>
 
       <div id="mystery-links-3" class="mystery-links">
+        
         <a href="https://open.spotify.com/playlist/2Kq0TLdj7VmbAveSbmsOlk?si=6HGiLC1fS1mrclNRcVpddA&pt=0bd647990ebdfb2aa0c86ca331a258d1" target="_blank">
           <img src="images/SpotifyCover.png" alt="Link 3" />
         </a>
