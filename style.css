@@ -279,3 +279,22 @@ body {
     overflow-x: hidden; /* Prevents side scrolling */
   }
   
+  .play-button {
+    position: fixed; /* Keeps it in a fixed spot on the screen */
+    background-color:rgb(239, 158, 250); /* Cute pink color */
+    top: 500px;
+    transition: 0.3s;
+    padding: 15px 30px; /* Increased padding for bigger buttons */
+    font-size: 22px; /* Larger text */
+    border: none;
+    border-radius: 30px; /* Rounded edges for a softer look */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  }
+  
+  .play-button:hover {
+    background-color:rgb(222, 147, 232);
+    transform: scale(1.05);
+  }
+  
