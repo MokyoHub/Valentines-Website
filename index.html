@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine!</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sep0tpr.css" />
+  </head>
+  <body>
+    <audio id="bg-music" loop>
+      <source src="bobadate.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      class="play-button"
+      onclick="document.getElementById('bg-music').play()"
+    >
+      Play Music!
+    </button>
+
+    <audio id="mouse-click">
+      <source src="mouse-click.wav" type="audio/mpeg" />
+    </audio>
+
+    <audio id="mousehover">
+      <source src="mousehover.wav" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      function playClickSound() {
+        let sound = document.getElementById("mouse-click");
+        if (sound) {
+          sound.currentTime = 0;
+          sound
+            .play()
+            .catch((error) =>
+              console.log("Click sound blocked by browser:", error)
+            );
+        }
+      }
+
+      function playHoverSound() {
+        let sound = document.getElementById("mousehover");
+        if (sound) {
+          sound.currentTime = 0;
+          sound
+            .play()
+            .catch((error) =>
+              console.log("Hover sound blocked by browser:", error)
+            );
+        }
+      }
+
+      function handleYesClick() {
+        playClickSound();
+        setTimeout(() => {
+          window.location.href = "yes.html";
+        }, 300);
+      }
+
+      function handleNoClick() {
+        playClickSound();
+        setTimeout(() => {
+          window.location.href = "no1.html";
+        }, 300);
+      }
+
+      // Ensure buttons exist before adding event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("mouseenter", playHoverSound);
+        });
+      });
+    </script>
+
+    <img src="images/image220.png" alt="Random Image" class="random-image" />
+    <img src="images/rollcute.gif" alt="Random Gif" class="random-gif" />
+    <img src="images/image433.png" alt="Random Image2" class="random-image2" />
+    <img src="images/rosepi.png" alt="Random Image4" class="random-image4" />
+    <img src="images/heartpi.png" alt="Random Image5" class="random-image5" />
+    <img src="images/woah.PNG" alt="Random Image3" class="random-image3" />
+    <img src="images/hamster.gif" alt="Ham Image" class="Ham-image" />
+    <div class="container">
+      <div
+        class="tenor-gif-embed"
+        data-postid="4075642900946963905"
+        data-share-method="host"
+        data-aspect-ratio="1.07207"
+        data-width="100%"
+      >
+        <a
+          href="https://tenor.com/view/peach-goma-happy-side-to-side-gif-4075642900946963905"
+        >
+          Peach Goma Happy Side To Side Sticker
+        </a>
+        from
+        <a href="https://tenor.com/search/peach+goma-stickers"
+          >Peach Goma Stickers</a
+        >
+      </div>
+
+      <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+      ></script>
+
+      <h1>Will you be my Valentine?</h1>
+      <p>pretty pleaseeee</p>
+
+      <div class="btn">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" onclick="handleNoClick()">No</button>
+      </div>
+    </div>
+  </body>
+</html>

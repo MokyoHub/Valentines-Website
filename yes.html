@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine!</title>
+    <link rel="stylesheet" href="https://use.typekit.net/sep0tpr.css">
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+
+      .home-button {
+        background-color: #ee0000;
+        color: rgb(255, 255, 255);
+        padding: 15px 30px;
+        font-size: 15px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      /* Style for Mystery Buttons */
+      .mystery-button {
+        background-color: #ff4081;
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      .mystery-button:hover {
+        background-color: #e91e63;
+        transform: scale(1.08);
+      }
+
+      /* Style for Hidden Links/Images */
+      .mystery-links {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .mystery-links img {
+        max-width: 200px;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .mystery-links img:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+
+  </button>
+
+  <audio id="mouse-click">
+    <source src="mouse-click.wav" type="audio/mpeg" />
+  </audio>
+
+  <audio id="mousehover">
+    <source src="mousehover.wav" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function playClickSound() {
+      let sound = document.getElementById("mouse-click");
+      if (sound) {
+        sound.currentTime = 0;
+        sound
+          .play()
+          .catch((error) =>
+            console.log("Click sound blocked by browser:", error)
+          );
+      }
+    }
+
+    function playHoverSound() {
+      let sound = document.getElementById("mousehover");
+      if (sound) {
+        sound.currentTime = 0;
+        sound
+          .play()
+          .catch((error) =>
+            console.log("Hover sound blocked by browser:", error)
+          );
+      }
+    }
+
+    function handleYesClick() {
+      playClickSound();
+      setTimeout(() => {
+        window.location.href = "yes.html";
+      }, 300);
+    }
+
+    function handleNoClick() {
+      playClickSound();
+      setTimeout(() => {
+        window.location.href = "no1.html";
+      }, 300);
+    }
+
+    // Ensure buttons exist before adding event listeners
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("mouseenter", playHoverSound);
+      });
+    });
+  </script>
+    
+    
+    <div class="container">
+      <!-- GIF Embed -->
+      <div class="tenor-gif-embed" data-postid="7769183593707445172" data-share-method="host" data-aspect-ratio="1.09692" data-width="100%"><a href="https://tenor.com/view/%EC%9C%B0-%EC%95%A0%EA%B5%90-gif-7769183593707445172">윰 애교 GIF</a>from <a href="https://tenor.com/search/%EC%9C%B0+%EC%95%A0%EA%B5%90-gifs">윰 애교 GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+      <!-- Celebration Message -->
+      <h1>YAYAYAY!! HERE HAVE SOME MYSTERY GIFTS!!</h1>
+
+      <!-- Mystery Buttons -->
+      <div>
+        <button class="mystery-button" onclick="revealLinks(1)">SECRET</button>
+        <button class="mystery-button" onclick="revealLinks(2)">SECRET</button>
+        <button class="mystery-button" onclick="revealLinks(3)">SECRET</button>
+      </div>
+
+      <!-- Links to reveal -->
+      <div id="mystery-links-1" class="mystery-links">
+        <a href="https://drive.google.com/file/d/1VOWY4eFWCZ0k4fFURjNr9wWEAzrgTIhw/view?usp=sharing" target="_blank">
+          <img src="images/lovercardpng.png" alt="Link 1" />
+        </a>
+        
+      </div>
+
+      <div id="mystery-links-2" class="mystery-links">
+       
+        <a href="https://example.com/link2" target="_blank">
+          <img src="images/BlenderSOON.png" alt="Link 2" />
+        </a>
+      </div>
+
+      <div id="mystery-links-3" class="mystery-links">
+        <a href="https://open.spotify.com/playlist/2Kq0TLdj7VmbAveSbmsOlk?si=6HGiLC1fS1mrclNRcVpddA&pt=0bd647990ebdfb2aa0c86ca331a258d1" target="_blank">
+          <img src="images/SpotifyCover.png" alt="Link 3" />
+        </a>
+        
+      </div>
+
+
+      <!-- Optional Back to Home Button -->
+      <button onclick="goHome()" class="home-button">Back to Home</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function goHome() {
+        window.location.href = "index.html"; // Change to your home page link
+      }
+
+      // Function to reveal the mystery links when a button is clicked
+      function revealLinks(buttonNumber) {
+        var links = document.querySelectorAll(".mystery-links");
+        // Hide all links
+        links.forEach(function(link) {
+          link.style.display = "none";
+        });
+        // Show the selected links
+        document.getElementById("mystery-links-" + buttonNumber).style.display = "block";
+      }
+    </script>
+
+    <!-- Tenor Embed Script (Placed at the End) -->
+    <script async src="https://tenor.com/embed.js"></script>
+  </body>
+</html>
+
+

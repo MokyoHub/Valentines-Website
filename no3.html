@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine!</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sep0tpr.css" />
+  </head>
+  <body>
+
+    <audio id="mouse-click">
+      <source src="mouse-click.wav" type="audio/mpeg">
+  </audio>
+
+  <audio id="mousehover">
+      <source src="mousehover.wav" type="audio/mpeg">
+  </audio>
+
+  <script>
+      function playClickSound() {
+          let sound = document.getElementById("mouse-click");
+          if (sound) {
+              sound.currentTime = 0;
+              sound.play().catch(error => console.log("Click sound blocked by browser:", error));
+          }
+      }
+
+      function playHoverSound() {
+          let sound = document.getElementById("mousehover");
+          if (sound) {
+              sound.currentTime = 0;
+              sound.play().catch(error => console.log("Hover sound blocked by browser:", error));
+          }
+      }
+
+      function handleYesClick() {
+          playClickSound();
+          setTimeout(() => {
+              window.location.href = "yes.html";
+          }, 300);
+      }
+
+      function handleNoClick() {
+          playClickSound();
+          setTimeout(() => {
+              window.location.href = "no1.html";
+          }, 300);
+      }
+
+      // Ensure buttons exist before adding event listeners
+      document.addEventListener("DOMContentLoaded", function() {
+          document.querySelectorAll("button").forEach(button => {
+              button.addEventListener("mouseenter", playHoverSound);
+          });
+      });
+  </script>
+    
+    <div class="container">
+      <!-- Embedded GIF -->
+      <div
+        class="tenor-gif-embed"
+        data-postid="306359828679331153"
+        data-share-method="host"
+        data-aspect-ratio="1.0641"
+        data-width="100%"
+      >
+        <a
+          href="https://tenor.com/view/peach-and-goma-peach-goma-peachy-goma-peach-cat-goma-peach-gif-306359828679331153"
+          >Peach And Goma Peach Goma Sticker</a
+        >from
+        <a href="https://tenor.com/search/peach+and+goma-stickers"
+          >Peach And Goma Stickers</a
+        >
+      </div>
+      <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+      ></script>
+      <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+      ></script>
+
+      <!-- Funny Message -->
+      <h1>Oh!! You just clicked the wrong button, silly you</h1>
+
+      <!-- Buttons -->
+      <div class="btn">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" id="move-random">No</button>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function moveRandomEl(elm) {
+        elm.style.position = "absolute";
+        elm.style.top = Math.floor(Math.random() * 80 + 10) + "%";
+        elm.style.left = Math.floor(Math.random() * 80 + 10) + "%";
+      }
+
+      const moveRandom = document.querySelector("#move-random");
+      moveRandom.addEventListener("mouseenter", function () {
+        moveRandomEl(moveRandom);
+      });
+    </script>
+  </body>
+</html>
