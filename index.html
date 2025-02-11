@@ -6,143 +6,42 @@
     <title>Will You Be My Valentine!</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/sep0tpr.css" />
-
-    <style>
-      /* General Reset */
-      body,
-      h1,
-      p,
-      button,
-      img {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Body */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #ffe5e5;
-        color: #333;
-        text-align: center;
-        padding: 10px;
-      }
-
-      /* Title */
-      h1 {
-        font-size: 2em;
-        margin-top: 20px;
-      }
-
-      /* Button Styling */
-      .btn {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 20px;
-      }
-
-      .yes-button,
-      .no-button {
-        padding: 15px 30px;
-        font-size: 18px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .yes-button {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      .no-button {
-        background-color: #f44336;
-        color: white;
-      }
-
-      .yes-button:hover {
-        background-color: #45a049;
-      }
-
-      .no-button:hover {
-        background-color: #e53935;
-      }
-
-      /* Images */
-      img {
-        max-width: 100%;
-        height: auto;
-        margin: 10px 0;
-      }
-
-      /* Mystery button styling */
-      .mystery-button {
-        background-color: #ff4081;
-        color: white;
-        padding: 15px 30px;
-        font-size: 18px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        margin: 10px;
-        transition: background-color 0.3s;
-      }
-
-      .mystery-button:hover {
-        background-color: #e91e63;
-        transform: scale(1.08);
-      }
-
-      /* Responsive Media Queries */
-      @media (max-width: 768px) {
-        /* On smaller screens, adjust text and button sizes */
-        h1 {
-          font-size: 1.5em;
-        }
-
-        .yes-button,
-        .no-button {
-          font-size: 16px;
-          padding: 12px 25px;
-        }
-
-        .mystery-button {
-          font-size: 16px;
-          padding: 12px 25px;
-        }
-
-        /* Stack buttons vertically on small screens */
-        .btn {
-          flex-direction: column;
-        }
-      }
-
-      @media (max-width: 480px) {
-        /* Further adjust text sizes and layout for very small screens */
-        h1 {
-          font-size: 1.2em;
-        }
-
-        .yes-button,
-        .no-button {
-          font-size: 14px;
-          padding: 10px 20px;
-        }
-
-        /* Reduce image size on very small screens */
-        img {
-          max-width: 90%;
-        }
-      }
-    </style>
   </head>
   <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bg-music");
+
+        // Check if audio was playing before
+        if (localStorage.getItem("isPlaying") === "true") {
+          let savedTime = parseFloat(localStorage.getItem("audioTime")) || 0;
+          audio.currentTime = savedTime; // Resume from last time
+          audio.play();
+        }
+
+        // Save audio time every second
+        setInterval(() => {
+          if (!audio.paused) {
+            localStorage.setItem("audioTime", audio.currentTime);
+            localStorage.setItem("isPlaying", "true");
+          } else {
+            localStorage.setItem("isPlaying", "false");
+          }
+        }, 1000);
+
+        // Play button functionality
+        document
+          .querySelector(".play-button")
+          .addEventListener("click", function () {
+            audio.play();
+            localStorage.setItem("isPlaying", "true");
+          });
+      });
+    </script>
+
     <audio id="bg-music" loop>
       <source src="bobadate.mp3" type="audio/mpeg" />
     </audio>
-
     <button
       class="play-button"
       onclick="document.getElementById('bg-music').play()"
@@ -197,6 +96,7 @@
         }, 300);
       }
 
+      // Ensure buttons exist before adding event listeners
       document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll("button").forEach((button) => {
           button.addEventListener("mouseenter", playHoverSound);
@@ -211,7 +111,6 @@
     <img src="images/heartpi.png" alt="Random Image5" class="random-image5" />
     <img src="images/woah.PNG" alt="Random Image3" class="random-image3" />
     <img src="images/hamster.gif" alt="Ham Image" class="Ham-image" />
-
     <div class="container">
       <div
         class="tenor-gif-embed"
@@ -230,6 +129,7 @@
           >Peach Goma Stickers</a
         >
       </div>
+
       <script
         type="text/javascript"
         async
