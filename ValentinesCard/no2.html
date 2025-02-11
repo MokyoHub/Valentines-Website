@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine!</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sep0tpr.css">
+  </head>
+  <body>
+
+    <audio id="mouse-click">
+      <source src="mouse-click.wav" type="audio/mpeg">
+  </audio>
+
+  <audio id="mousehover">
+      <source src="mousehover.wav" type="audio/mpeg">
+  </audio>
+
+  <script>
+      function playClickSound() {
+          let sound = document.getElementById("mouse-click");
+          if (sound) {
+              sound.currentTime = 0;
+              sound.play().catch(error => console.log("Click sound blocked by browser:", error));
+          }
+      }
+
+      function playHoverSound() {
+          let sound = document.getElementById("mousehover");
+          if (sound) {
+              sound.currentTime = 0;
+              sound.play().catch(error => console.log("Hover sound blocked by browser:", error));
+          }
+      }
+
+      function handleYesClick() {
+          playClickSound();
+          setTimeout(() => {
+              window.location.href = "yes.html";
+          }, 300);
+      }
+
+      function handleNoClick() {
+          playClickSound();
+          setTimeout(() => {
+              window.location.href = "no3.html";
+          }, 300);
+      }
+
+      // Ensure buttons exist before adding event listeners
+      document.addEventListener("DOMContentLoaded", function() {
+          document.querySelectorAll("button").forEach(button => {
+              button.addEventListener("mouseenter", playHoverSound);
+          });
+      });
+  </script>
+    
+
+    <div class="container">
+      <!-- Embedded GIF -->
+      <div
+        class="tenor-gif-embed"
+        data-postid="20380595"
+        data-share-method="host"
+        data-aspect-ratio="1"
+        data-width="100%"
+      >
+        <a href="https://tenor.com/view/mutlu-gif-20380595">Mutlu Sticker</a>
+        from
+        <a href="https://tenor.com/search/mutlu-stickers">Mutlu Stickers</a>
+      </div>
+      <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+      ></script>
+
+      <!-- Title -->
+      <h1>Are you like sure sure?</h1>
+
+      <!-- Buttons -->
+      <div class="btn">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" onclick="handleNoClick()">No</button>
+      </div>
+    </div>
+  </body>
+</html>
