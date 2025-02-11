@@ -130,7 +130,7 @@ body {
 .random-image {
     position: absolute;
     top: 300px;
-    left: 270px;
+    left: 275px;
     width: 150px; /* Adjust size as needed */
     height: auto;
   }
@@ -146,7 +146,7 @@ body {
 
   .random-image3 {
     position: absolute;
-    left: 435px;
+    left: 350px;
     right: 200px;
     width: 150px; /* Adjust size as needed */
     height: auto;
@@ -208,55 +208,6 @@ body {
     height: auto;
   }
   
-  /* Example Positioning */
-  .random-image {
-    top: 300px;
-    left: 270px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
-  
-  .random-gif {
-    top: 440px;
-    right: 80px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
-  
-  .random-image2 {
-    top: 250px;
-        right: 250px;
-        width: 150px; /* Adjust size as needed */
-  }
-  
-  .random-image3 {
-    left: 435px;
-    right: 200px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
-  
-  .random-image4 {
-    top: 500px;
-    left: 60px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
-  
-  .random-image5 {
-    top: 100px;
-    right: 60px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
-  
-  .Ham-image {
-    top: 100px;
-    left: 100px;
-    right: 60px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-  }
 
   @media (max-width: 768px) {
     .random-image,
